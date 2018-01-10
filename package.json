@@ -1,6 +1,6 @@
 {
   "name": "xp-log",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "一个简单的前端日志工具",
   "license": "MIT",
   "main": "dist/index.js",
@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "xp-dom": "^1.0.2",
     "xp-utils": "^1.1.3"
   }
 }

@@ -19,7 +19,6 @@ let safeLog = {
     params: {}, // 传递的参数
     duration: 10 * 60 * 1000, // 间隔时间，safeLog才有
     delay: 2000, // 上报执行间隔
-    limit: 10, // log上限
     callback: () => {}, // 回调函数
   }
 }
