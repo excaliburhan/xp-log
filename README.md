@@ -4,4 +4,3 @@
 ### 安装
 
 > npm i xp-log --save
-

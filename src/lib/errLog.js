@@ -6,7 +6,7 @@
  * @desc [错误日志]
 */
 
-import axios from 'axios'
+import axios from 'axios/dist/axios'
 import { on } from 'xp-dom'
 import { debounce } from 'xp-utils'
 
@@ -25,7 +25,7 @@ let errLog = {
 }
 
 errLog.init = (opts) => {
-  errLog.config = {...errLog.config, ...opts}
+  errLog.config = Object.assign({}, errLog.config, opts)
   __init()
 }
 

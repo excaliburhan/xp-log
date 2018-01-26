@@ -6,7 +6,7 @@
  * @desc [正常运行日志]
 */
 
-import axios from 'axios'
+import axios from 'axios/dist/axios'
 import { debounce, formatDate } from 'xp-utils'
 
 let safeLog = {
@@ -24,7 +24,7 @@ let safeLog = {
 }
 
 safeLog.init = (opts) => {
-  safeLog.config = {...safeLog.config, ...opts}
+  safeLog.config = Object.assign({}, safeLog.config, opts)
   __init()
 }
 
