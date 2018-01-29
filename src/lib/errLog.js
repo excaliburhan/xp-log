@@ -2,12 +2,11 @@
  * @author xiaoping
  * @email edwardhjp@gmail.com
  * @create date 2017-12-30 03:36:34
- * @modify date 2017-12-30 03:36:34
+ * @modify date 2018-01-29 06:19:52
  * @desc [错误日志]
 */
 
 import axios from 'axios/dist/axios'
-import { on } from 'xp-dom'
 import { debounce } from 'xp-utils'
 
 let errLog = {
@@ -41,22 +40,23 @@ function __init () {
   config.callback = debounce(config.callback, config.delay) // debounce函数
 
   // 监听全局runtime error
-  window.onerror = () => {
-    __log(formatRuntimeError.apply(null, arguments))
+  window.onerror = (msg, url, line, col, err) => {
+    __log(formatRuntimeError(msg, url, line, col, err))
   }
 
   // 监听script error
-  on(window, 'error', (e) => {
+  window.addEventListener('error', (e) => {
     let tag = e.target
     if (tag !== window && tag.nodeName) {
-      __log(formatScriptError(tag))
+      __log(formatResouceError(tag))
     }
-  })
+  }, true)
 
   // 监听unhandledrejection error
-  on(window, 'unhandledrejection', (e) => {
+  window.addEventListener('error', (e) => {
+    e.preventDefault()
     __log(formatPromiseError(e))
-  })
+  }, false)
 }
 
 // runtime错误格式化
@@ -69,9 +69,9 @@ function formatRuntimeError (msg, url, line, col, err) {
 }
 
 // script错误格式化
-function formatScriptError (tag) {
+function formatResouceError (tag) {
   return {
-    type: 'script',
+    type: 'resource',
     desc: tag.baseURI + '@' + (tag.src || tag.href),
     err: 'load error',
   }

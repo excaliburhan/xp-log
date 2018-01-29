@@ -1798,10 +1798,6 @@ write@^0.2.1:
   dependencies:
     mkdirp "^0.5.1"
 
-xp-dom@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/xp-dom/-/xp-dom-1.0.6.tgz#fdf030174cccbc97eae4ec1f787587110d434608"
-
 xp-utils@^1.1.7:
   version "1.1.7"
   resolved "https://registry.npmjs.org/xp-utils/-/xp-utils-1.1.7.tgz#3f1e79fc0f62b218c8242413ec739f4d884f84cd"
