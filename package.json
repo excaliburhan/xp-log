@@ -1,6 +1,6 @@
 {
   "name": "xp-log",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "一个简单的前端日志工具",
   "license": "MIT",
   "main": "dist/index.js",

@@ -53,7 +53,7 @@ function __init () {
   }, true)
 
   // 监听unhandledrejection error
-  window.addEventListener('error', (e) => {
+  window.addEventListener('unhandledrejection', (e) => {
     e.preventDefault()
     __log(formatPromiseError(e))
   }, false)
